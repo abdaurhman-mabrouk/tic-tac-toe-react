@@ -9,6 +9,8 @@ function GameTable() {
   const [winner, setWinner] = useState('');
   let gameTableInputsArray = [];
 
+  const [squareIsFull, setSquareIsFull] = useState(0);
+
   const checkWinner = useEffect(() => {
     const square0 = document.getElementById('square0');
     const square1 = document.getElementById('square1');
@@ -76,15 +78,21 @@ function GameTable() {
     ) {
       handleWinner(square2.innerText);
       handleNotEqualGame();
+    } else {
     }
   }, [gameTableSquares]);
 
   const handlePlayerClick = (squareId) => {
-    document.getElementById(squareId).innerText = turn;
-    if (turn === 'X') {
-      setTurn('O');
-    } else {
-      setTurn('X');
+    var targetSquare = document.getElementById(squareId);
+
+    if (targetSquare.innerText === '') {
+      document.getElementById(squareId).innerText = turn;
+
+      if (turn === 'X') {
+        setTurn('O');
+      } else {
+        setTurn('X');
+      }
     }
   };
 
@@ -98,9 +106,7 @@ function GameTable() {
 
   const handleNotEqualGame = () => {
     setTimeout(() => {
-      for (let i = 0; i < gameTableSquares.length; i++) {
-        gameTableSquares[i].innerText = '';
-      }
+      window.location.reload();
     }, 3000);
   };
 
