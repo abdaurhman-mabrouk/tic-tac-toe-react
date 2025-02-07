@@ -1,0 +1,24 @@
+div#loadingBarDiv {
+  display: flex;
+  position: fixed;
+  left: 165px;
+  bottom: 800px;
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  opacity: 1;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+img#loadingBarImage {
+  width: 100px;
+  height: 100px;
+}
+
+p.loading-bar {
+  display: flex;
+}

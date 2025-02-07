@@ -119,6 +119,7 @@ function GameTable() {
             id="square0"
             onClick={(event) => {
               handlePlayerClick(event.target.id);
+              document.getElementById('loadingBarDiv').style.bottom = '70px';
             }}></td>
           <td
             className="square game-table-square"
