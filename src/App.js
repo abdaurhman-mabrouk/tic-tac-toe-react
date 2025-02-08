@@ -1,5 +1,5 @@
 import './App.css';
-import LodingBar from './Components/Indivaduals/LoadingBar/LodingBar';
+import LoadingModal from './Components/Indivaduals/LoadingModal/LoadingModal';
 import GameTable from './Components/Sections/GameTable/GameTable';
 import GameTopNav from './Components/Sections/GameTopNav/GameTopNav';
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <GameTopNav />
       <GameTable />
-      <LodingBar />
+      <LoadingModal isVisible={false} />
     </>
   );
 }

@@ -1,0 +1,33 @@
+div#loadingModalDiv {
+  display: block;
+  position: fixed;
+  left: 25vw;
+  top: 25vh;
+  width: 50vw;
+  max-width: 50vw;
+  height: 50vh;
+  max-height: 50vh;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  opacity: 1;
+  background-color: #fff;
+  box-shadow: 0 0 2px 7px rgb(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+img#loadingModalImage {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border: 1px solid #000;
+}
+
+p.loading-modal {
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #000;
+}

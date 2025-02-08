@@ -1,15 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import LoadingModal from '../../Indivaduals/LoadingModal/LoadingModal';
 import './GameTable.css';
 
 function GameTable() {
-  var gameTableSquares = document.querySelectorAll('td.raw');
+  const gameTableSquares = document.querySelectorAll('td.raw');
 
   const [turn, setTurn] = useState('X');
   const [winner, setWinner] = useState('');
   let gameTableInputsArray = [];
 
   const [squareIsFull, setSquareIsFull] = useState(0);
+
+  const [modalIsShow, setModalIsShow] = useState(false);
 
   const checkWinner = useEffect(() => {
     const square0 = document.getElementById('square0');
@@ -86,7 +89,9 @@ function GameTable() {
     var targetSquare = document.getElementById(squareId);
 
     if (targetSquare.innerText === '') {
-      document.getElementById(squareId).innerText = turn;
+      targetSquare.innerText = turn;
+      setSquareIsFull(squareIsFull + 1);
+      alert(squareIsFull);
 
       if (turn === 'X') {
         setTurn('O');
@@ -101,10 +106,15 @@ function GameTable() {
   };
 
   const handleEqualGame = () => {
-    alert('Equal Game');
+    if (squareIsFull === 9) {
+      alert('Equal Game');
+    }
   };
 
   const handleNotEqualGame = () => {
+    setModalIsShow(true);
+    <LoadingModal isVisible={modalIsShow} />;
+
     setTimeout(() => {
       window.location.reload();
     }, 3000);
@@ -119,7 +129,6 @@ function GameTable() {
             id="square0"
             onClick={(event) => {
               handlePlayerClick(event.target.id);
-              document.getElementById('loadingBarDiv').style.bottom = '70px';
             }}></td>
           <td
             className="square game-table-square"
