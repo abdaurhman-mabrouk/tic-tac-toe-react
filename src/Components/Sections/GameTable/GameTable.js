@@ -103,7 +103,7 @@ function GameTable() {
 
   const handleWinner = (winner) => {
     setModalIsShow(true);
-    setModalText(`${winner} is Winner`);
+    setModalText(`${winner} is Winner, Prepairing New Game`);
     handleNewGame();
   };
 
