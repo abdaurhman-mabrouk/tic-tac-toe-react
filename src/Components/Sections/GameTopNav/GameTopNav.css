@@ -5,6 +5,7 @@ nav {
   align-content: center;
   align-items: center;
   justify-content: space-evenly;
+  background-color: #2c3e50;
   border: 1px solid #000;
 }
 
@@ -15,6 +16,13 @@ nav a.top-nav-link {
   align-content: center;
   align-items: center;
   text-decoration: none;
+  transition: 0.3s;
+  /* opacity: 0.5; */
   color: #000;
+  background-color: #ecf0f1;
   border: 1px solid #000;
+}
+
+nav a.top-nav-link:hover {
+  background-color: #3498db;
 }

@@ -6,15 +6,15 @@ import './GameTable.css';
 function GameTable() {
   const gameTableSquares = document.querySelectorAll('td.raw');
 
+  let gameTableInputsArray = [];
   const [turn, setTurn] = useState('X');
   const [winner, setWinner] = useState('');
-  let gameTableInputsArray = [];
-
+  const [loser, setLoser] = useState('');
   const [squareIsFull, setSquareIsFull] = useState(0);
-
   const [modalIsShow, setModalIsShow] = useState(false);
+  const [modalText, setModalText] = useState('');
 
-  const checkWinner = useEffect(() => {
+  const checkGameProgress = useEffect(() => {
     const square0 = document.getElementById('square0');
     const square1 = document.getElementById('square1');
     const square2 = document.getElementById('square2');
@@ -30,59 +30,60 @@ function GameTable() {
       square1.innerText === square2.innerText &&
       square0.innerText !== ''
     ) {
+      setWinner(square0.innerText);
       handleWinner(square0.innerText);
-      handleNotEqualGame();
     } else if (
       square3.innerText === square4.innerText &&
       square4.innerText === square5.innerText &&
       square3.innerText !== ''
     ) {
+      setWinner(square3.innerText);
       handleWinner(square3.innerText);
-      handleNotEqualGame();
     } else if (
       square6.innerText === square7.innerText &&
       square7.innerText === square8.innerText &&
       square6.innerText !== ''
     ) {
+      setWinner(square6.innerText);
       handleWinner(square6.innerText);
-      handleNotEqualGame();
     } else if (
       square0.innerText === square4.innerText &&
       square4.innerText === square8.innerText &&
       square0.innerText !== ''
     ) {
+      setWinner(square0.innerText);
       handleWinner(square0.innerText);
-      handleNotEqualGame();
     } else if (
       square2.innerText === square4.innerText &&
       square4.innerText === square6.innerText &&
       square2.innerText !== ''
     ) {
+      setWinner(square2.innerText);
       handleWinner(square2.innerText);
-      handleNotEqualGame();
     } else if (
       square0.innerText === square3.innerText &&
       square3.innerText === square6.innerText &&
       square0.innerText !== ''
     ) {
+      setWinner(square0.innerText);
       handleWinner(square0.innerText);
-      handleNotEqualGame();
     } else if (
       square1.innerText === square4.innerText &&
       square4.innerText === square7.innerText &&
       square1.innerText !== ''
     ) {
+      setWinner(square1.innerText);
       handleWinner(square1.innerText);
-      handleNotEqualGame();
     } else if (
       square2.innerText === square5.innerText &&
       square5.innerText === square8.innerText &&
       square2.innerText !== ''
     ) {
+      setWinner(square2.innerText);
       handleWinner(square2.innerText);
-      handleNotEqualGame();
     } else {
     }
+    handleEqualGame();
   }, [gameTableSquares]);
 
   const handlePlayerClick = (squareId) => {
@@ -91,7 +92,6 @@ function GameTable() {
     if (targetSquare.innerText === '') {
       targetSquare.innerText = turn;
       setSquareIsFull(squareIsFull + 1);
-      alert(squareIsFull);
 
       if (turn === 'X') {
         setTurn('O');
@@ -102,91 +102,96 @@ function GameTable() {
   };
 
   const handleWinner = (winner) => {
-    alert(winner);
+    setModalIsShow(true);
+    setModalText(`${winner} is Winner`);
+    handleNewGame();
   };
 
   const handleEqualGame = () => {
+    //check if all Squares is Not Empty
     if (squareIsFull === 9) {
       alert('Equal Game');
+      //Prepair a new game after end
+      handleNewGame();
     }
   };
 
-  const handleNotEqualGame = () => {
-    setModalIsShow(true);
-    <LoadingModal isVisible={modalIsShow} />;
-
+  const handleNewGame = (period = 4000) => {
     setTimeout(() => {
       window.location.reload();
-    }, 3000);
+    }, period);
   };
 
   return (
-    <table id="gameTable">
-      <tbody id="gameTableBody">
-        <tr className="raw game-table-raw">
-          <td
-            className="square game-table-square"
-            id="square0"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-          <td
-            className="square game-table-square"
-            id="square1"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-          <td
-            className="square game-table-square"
-            id="square2"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-        </tr>
+    <>
+      <table id="gameTable">
+        <tbody id="gameTableBody">
+          <tr className="raw game-table-raw">
+            <td
+              className="square game-table-square"
+              id="square0"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+            <td
+              className="square game-table-square"
+              id="square1"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+            <td
+              className="square game-table-square"
+              id="square2"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+          </tr>
 
-        <tr className="raw game-table-raw">
-          <td
-            className="square game-table-square"
-            id="square3"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-          <td
-            className="square game-table-square"
-            id="square4"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-          <td
-            className="square game-table-square"
-            id="square5"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-        </tr>
+          <tr className="raw game-table-raw">
+            <td
+              className="square game-table-square"
+              id="square3"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+            <td
+              className="square game-table-square"
+              id="square4"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+            <td
+              className="square game-table-square"
+              id="square5"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+          </tr>
 
-        <tr className="raw game-table-raw">
-          <td
-            className="square game-table-square"
-            id="square6"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-          <td
-            className="square game-table-square"
-            id="square7"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-          <td
-            className="square game-table-square"
-            id="square8"
-            onClick={(event) => {
-              handlePlayerClick(event.target.id);
-            }}></td>
-        </tr>
-      </tbody>
-    </table>
+          <tr className="raw game-table-raw">
+            <td
+              className="square game-table-square"
+              id="square6"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+            <td
+              className="square game-table-square"
+              id="square7"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+            <td
+              className="square game-table-square"
+              id="square8"
+              onClick={(event) => {
+                handlePlayerClick(event.target.id);
+              }}></td>
+          </tr>
+        </tbody>
+      </table>
+      <LoadingModal isVisible={modalIsShow} loadingText={modalText} />;
+    </>
   );
 }
 

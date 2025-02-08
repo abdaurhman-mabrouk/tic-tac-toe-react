@@ -8,7 +8,7 @@ function App() {
     <>
       <GameTopNav />
       <GameTable />
-      <LoadingModal isVisible={false} />
+      {/* <LoadingModal isVisible={true} loadingText={'Done'} /> */}
     </>
   );
 }

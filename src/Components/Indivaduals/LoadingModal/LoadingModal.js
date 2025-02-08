@@ -2,8 +2,8 @@ import React from 'react';
 import './LoadingModal.css';
 import loadingSvg from '../../../Assets/images/loading-bar-squares.svg';
 
-function LodingModal({ isVisible }) {
-  if (isVisible === true) {
+function LodingModal({ isVisible, loadingText }) {
+  if (isVisible) {
     return (
       <div id="loadingModalDiv" className="loading-modal">
         <img
@@ -16,7 +16,7 @@ function LodingModal({ isVisible }) {
         <br />
 
         <p id="loadingModalText" className="loading-modal">
-          Loading...
+          {loadingText ? loadingText : 'Loading...'}
         </p>
       </div>
     );

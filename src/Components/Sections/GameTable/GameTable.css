@@ -6,6 +6,7 @@ table {
   align-items: center;
   align-content: center;
   justify-content: center;
+  background-color: #1e1e2e;
   border: 1px solid #000;
 }
 
@@ -18,7 +19,7 @@ tr {
   align-items: center;
   align-content: center;
   justify-content: space-evenly;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 td {
@@ -30,5 +31,6 @@ td {
   align-content: center;
   align-items: center;
   text-align: center;
+  background-color: #34495e;
   border: 1px solid #000;
 }

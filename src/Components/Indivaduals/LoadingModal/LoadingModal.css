@@ -12,7 +12,7 @@ div#loadingModalDiv {
   align-content: center;
   justify-content: center;
   opacity: 1;
-  background-color: #fff;
+  background-color: #34495e;
   box-shadow: 0 0 2px 7px rgb(0, 0, 0, 0.1);
   border-radius: 10px;
   border: 1px solid #000;
@@ -28,6 +28,7 @@ img#loadingModalImage {
 
 p.loading-modal {
   display: flex;
+  width: fit-content;
   margin: 0 auto;
   border: 1px solid #000;
 }
