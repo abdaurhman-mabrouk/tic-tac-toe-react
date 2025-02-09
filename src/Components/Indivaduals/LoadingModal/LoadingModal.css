@@ -23,12 +23,14 @@ img#loadingModalImage {
   width: 100px;
   height: 100px;
   margin: 0 auto;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 p.loading-modal {
   display: flex;
   width: fit-content;
   margin: 0 auto;
-  border: 1px solid #000;
+  font-size: 20px;
+  color: #fff;
+  /* border: 1px solid #000; */
 }
