@@ -103,7 +103,9 @@ function GameTable() {
 
   const handleWinner = (winner) => {
     if (document.getElementById('loadingModalText')) {
-      document.getElementById('loadingModalText').style.color = 'green';
+      const loadingModalText = document.getElementById('loadingModalText');
+      loadingModalText.style.color = 'green';
+      loadingModalText.style.backgroundColor = 'black';
     }
     setModalIsShow(true);
     setModalText(`${winner} is Winner, Prepairing New Game`);
