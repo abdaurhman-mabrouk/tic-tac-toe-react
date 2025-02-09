@@ -4,6 +4,8 @@ import loadingSvg from '../../../Assets/images/loading-bar-squares.svg';
 
 function LodingModal({ isVisible, loadingText }) {
   if (isVisible) {
+    document.getElementById('gameTable').style.opacity = '0.3';
+    document.getElementById('topNav').style.opacity = '0.3';
     return (
       <div id="loadingModalDiv" className="loading-modal">
         <img

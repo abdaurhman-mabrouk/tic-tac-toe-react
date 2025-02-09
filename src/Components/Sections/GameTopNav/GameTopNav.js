@@ -11,6 +11,7 @@ function GameTopNav() {
   const handlePauseGame = () => {};
   const handleResumeGame = () => {};
   const handleExitGame = () => {};
+
   return (
     <nav id="topNav">
       <a href="#" onClick={handleNewGame} className="top-nav-link link">

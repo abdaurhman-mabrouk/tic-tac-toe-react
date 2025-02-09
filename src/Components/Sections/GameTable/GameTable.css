@@ -1,12 +1,12 @@
 table {
   width: 70%;
-  height: 70%;
-  margin: 50px auto;
+  height: 80%;
+  margin: 25px auto;
   padding: 0;
   align-items: center;
   align-content: center;
   justify-content: center;
-  background-color: #1e1e2e;
+  background-color: #000;
   border: 1px solid #000;
 }
 
@@ -19,6 +19,7 @@ tr {
   align-items: center;
   align-content: center;
   justify-content: space-evenly;
+  background-color: #000;
   /* border: 1px solid #000; */
 }
 
@@ -31,6 +32,6 @@ td {
   align-content: center;
   align-items: center;
   text-align: center;
-  background-color: #34495e;
+  background-color: #ffff00;
   border: 1px solid #000;
 }

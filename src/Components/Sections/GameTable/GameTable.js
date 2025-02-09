@@ -110,7 +110,9 @@ function GameTable() {
   const handleEqualGame = () => {
     //check if all Squares is Not Empty
     if (squareIsFull === 9) {
-      alert('Equal Game');
+      setModalIsShow(true);
+      setModalText('Equal Game');
+
       //Prepair a new game after end
       handleNewGame();
     }
