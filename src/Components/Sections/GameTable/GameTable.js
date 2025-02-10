@@ -1,12 +1,12 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import LoadingModal from '../../Indivaduals/LoadingModal/LoadingModal';
+import { useState, useEffect, useContext } from 'react';
 import './GameTable.css';
+import LoadingModal from '../../Indivaduals/LoadingModal/LoadingModal';
 
 function GameTable() {
   const gameTableSquares = document.querySelectorAll('td.raw');
-
   let gameTableInputsArray = [];
+
   const [turn, setTurn] = useState('X');
   const [winner, setWinner] = useState('');
   const [loser, setLoser] = useState('');

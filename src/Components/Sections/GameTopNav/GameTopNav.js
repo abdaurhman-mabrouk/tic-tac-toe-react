@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './GameTopNav.css';
 import LoadingModal from '../../Indivaduals/LoadingModal/LoadingModal';
 import handleNewGame from '../GameTable/GameTable.js';

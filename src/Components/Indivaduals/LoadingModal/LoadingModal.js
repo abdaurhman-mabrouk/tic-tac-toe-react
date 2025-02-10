@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './LoadingModal.css';
 import loadingSvg from '../../../Assets/images/loading-bar-squares.svg';
 
