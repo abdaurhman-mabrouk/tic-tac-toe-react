@@ -123,10 +123,10 @@ function GameTable() {
     }
   };
 
-  const handleNewGame = (period = 4000) => {
+  const handleNewGame = (reloadPeriod = 4000) => {
     setTimeout(() => {
       window.location.reload();
-    }, period);
+    }, reloadPeriod);
   };
 
   return (
